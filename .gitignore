@@ -4,3 +4,4 @@ main
 a.exe
 *.input
 *.output
+__pycache__/

@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/running-sum-of-1d-array
+# Number: 1480
 # Difficulty: easy
 
 class Solution(object):
