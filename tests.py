@@ -2,6 +2,7 @@ import unittest
 import isomorphicStrings as ish
 import isSubsequence as isub
 import mergeTwoSortedLists as mtsl
+import reverseLinkedList as rll
 
 class TestIsh(unittest.TestCase):
     def test_ish(self):
@@ -40,6 +41,23 @@ class TestMtsl(unittest.TestCase):
         self.assertEqual(l3.next.next.next.next.val, 4)
         self.assertEqual(l3.next.next.next.next.next.val, 4)
         self.assertEqual(l3.next.next.next.next.next.next, None)
+
+class TestRll(unittest.TestCase):
+    def test_rll(self):
+        s = rll.Solution()
+        print("Reverse Linked List:")
+        l1 = rll.ListNode(1)
+        l1.next = rll.ListNode(2)
+        l1.next.next = rll.ListNode(3)
+        l1.next.next.next = rll.ListNode(4)
+        l1.next.next.next.next = rll.ListNode(5)
+        l2 = s.reverseList(l1)
+        self.assertEqual(l2.val, 5)
+        self.assertEqual(l2.next.val, 4)
+        self.assertEqual(l2.next.next.val, 3)
+        self.assertEqual(l2.next.next.next.val, 2)
+        self.assertEqual(l2.next.next.next.next.val, 1)
+        self.assertEqual(l2.next.next.next.next.next, None)
 
 
 if __name__ == '__main__':
