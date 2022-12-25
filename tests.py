@@ -8,6 +8,9 @@ import firstBadVersion as fbv
 import searchInsertPosition as sip
 import middleOfTheLinkedList as moll
 import linkedListCycleII as llcii
+import arrayPartition as ap
+import moveZeroes as mz
+import maximumRepeatingSubstring as mrs
 
 class TestIsh(unittest.TestCase):
     def test_ish(self):
@@ -142,8 +145,29 @@ class TestLlcII(unittest.TestCase):
         ans = s.detectCycle(l4)
         self.assertEqual(ans, l4.next.next.next.next.next.next)
 
- 
+class TestAp(unittest.TestCase):
+    def test_ap(self):
+        s = ap.Solution()
+        self.assertEqual(s.arrayPairSum([1,4,3,2]), 4)
+        self.assertEqual(s.arrayPairSum([6,2,6,5,1,2]), 9)
 
+class TestMoveZeroes(unittest.TestCase):
+    def test_mz(self):
+        s = mz.Solution()
+        nums = [0,1,0,3,12]
+        s.moveZeroes(nums)
+        self.assertEqual(nums, [1,3,12,0,0])
+        nums = [0,0,1]
+        s.moveZeroes(nums)
+        self.assertEqual(nums, [1,0,0])
+
+class TestMaximumRepeatingSubstring(unittest.TestCase):
+    def test_mrs(self):
+        s = mrs.Solution()
+        self.assertEqual(s.maxRepeating("ababc", "ab"), 2)
+        self.assertEqual(s.maxRepeating("ababc", "ba"), 1)
+        self.assertEqual(s.maxRepeating("ababc", "ac"), 0)
+        self.assertEqual(s.maxRepeating("aaabaaaabaaabaaaabaaaabaaaabaaaaba", "aaaba"), 5)
 
 if __name__ == '__main__':
     unittest.main()
