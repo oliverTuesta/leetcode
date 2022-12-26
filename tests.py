@@ -11,6 +11,10 @@ import linkedListCycleII as llcii
 import arrayPartition as ap
 import moveZeroes as mz
 import maximumRepeatingSubstring as mrs
+import bestTimeToBuyAndSellStock as btbs
+import longestPalindrome as lp
+import squaresOfSortedArray as sosa
+import rotateArray as ra
 
 class TestIsh(unittest.TestCase):
     def test_ish(self):
@@ -168,6 +172,43 @@ class TestMaximumRepeatingSubstring(unittest.TestCase):
         self.assertEqual(s.maxRepeating("ababc", "ba"), 1)
         self.assertEqual(s.maxRepeating("ababc", "ac"), 0)
         self.assertEqual(s.maxRepeating("aaabaaaabaaabaaaabaaaabaaaabaaaaba", "aaaba"), 5)
+
+class TestBestTimeToBuyAndSellStock(unittest.TestCase):
+    def test_btbs(self):
+        s = btbs.Solution()
+        self.assertEqual(s.maxProfit([7,1,5,3,6,4]), 5)
+        self.assertEqual(s.maxProfit([7,6,4,3,1]), 0)
+        self.assertEqual(s.maxProfit([2,4,1]), 2)
+        self.assertEqual(s.maxProfit([5,4,3,2,5,3,2,10,1,10]), 9)
+
+class TestLongestPalindrome(unittest.TestCase):
+    def test_lp(self):
+        s = lp.Solution()
+        self.assertEqual(s.longestPalindrome("abccccdd"), 7)
+        self.assertEqual(s.longestPalindrome("a"), 1)
+        self.assertEqual(s.longestPalindrome("abcd"), 1)
+        self.assertEqual(s.longestPalindrome("ac"), 1)
+        self.assertEqual(s.longestPalindrome("aaaaaaaaaaaaaaaa"), 16)
+        self.assertEqual(s.longestPalindrome("aaaabaaaa"), 9)
+
+class TestSquaresOfSortedArray(unittest.TestCase):
+    def test_sosa(self):
+        s = sosa.Solution()
+        self.assertEqual(s.sortedSquares([-4,-1,0,3,10]), [0,1,9,16,100])
+        self.assertEqual(s.sortedSquares([-7,-3,2,3,11]), [4,9,9,49,121])
+
+class TestRotateArray(unittest.TestCase):
+    def test_ra(self):
+        s = ra.Solution()
+        nums = [1,2,3,4,5,6,7]
+        s.rotate(nums, 3)
+        self.assertEqual(nums, [5,6,7,1,2,3,4])
+        nums = [-1,-100,3,99]
+        s.rotate(nums, 2)
+        self.assertEqual(nums, [3,99,-1,-100])
+        nums = [1,2,3,4,5,6,7]
+        s.rotate(nums, 8)
+        self.assertEqual(nums, [7,1,2,3,4,5,6])
 
 if __name__ == '__main__':
     unittest.main()
