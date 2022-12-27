@@ -15,6 +15,10 @@ import bestTimeToBuyAndSellStock as btbs
 import longestPalindrome as lp
 import squaresOfSortedArray as sosa
 import rotateArray as ra
+import nAryTreePreorderTraversal as ntpt
+import binaryTreeLevelOrderTraversal as btlot
+import twoSumII as tsii
+import reverseString as rs
 
 class TestIsh(unittest.TestCase):
     def test_ish(self):
@@ -209,6 +213,61 @@ class TestRotateArray(unittest.TestCase):
         nums = [1,2,3,4,5,6,7]
         s.rotate(nums, 8)
         self.assertEqual(nums, [7,1,2,3,4,5,6])
+
+class TestNAryTreePreorderTraversal(unittest.TestCase):
+    def test_ntpt(self):
+        s = ntpt.Solution()
+        root = ntpt.Node(1)
+        root.children = [ntpt.Node(3), ntpt.Node(2), ntpt.Node(4)]
+        root.children[0].children = [ntpt.Node(5), ntpt.Node(6)]
+        self.assertEqual(s.preorder(root), [1,3,5,6,2,4])
+
+class TestBinaryTreeLevelOrderTraversal(unittest.TestCase):
+    def test_btlot(self):
+        s = btlot.Solution()
+        root = btlot.TreeNode(3)
+        root.left = btlot.TreeNode(9)
+        root.right = btlot.TreeNode(20)
+        root.right.left = btlot.TreeNode(15)
+        root.right.right = btlot.TreeNode(7)
+        self.assertEqual(s.levelOrder(root), [[3],[9,20],[15,7]])
+        
+        root = btlot.TreeNode(1)
+        root.left = btlot.TreeNode(2)
+        root.right = btlot.TreeNode(3)
+        root.left.left = btlot.TreeNode(4)
+        root.left.right = btlot.TreeNode(5)
+        self.assertEqual(s.levelOrder(root), [[1],[2,3],[4,5]])
+
+        root = btlot.TreeNode(1)
+        self.assertEqual(s.levelOrder(root), [[1]])
+
+        self.assertEqual(s.levelOrder(None), [])
+
+class TestTwoSumII(unittest.TestCase):
+    def test_ts(self):
+        s = tsii.Solution()
+        self.assertEqual(s.twoSum([2,7,11,15], 9), [1,2])
+        self.assertEqual(s.twoSum([2,3,4], 6), [1,3])
+        self.assertEqual(s.twoSum([-1,0], -1), [1,2])
+        self.assertEqual(s.twoSum([0,0,3,4], 0), [1,2])
+
+class TestReverseString(unittest.TestCase):
+    def test_rs(self):
+        s = rs.Solution()
+        aux = ["h","e","l","l","o"]
+        s.reverseString(aux)
+        self.assertEqual(aux, ["o","l","l","e","h"]
+)
+        aux = ["H","a","n","n","a","h"]
+        s.reverseString(aux)
+        self.assertEqual(aux, ["h","a","n","n","a","H"])
+        aux = ["a"]
+        s.reverseString(aux)
+        self.assertEqual(aux, ["a"])
+        aux = ["a","b"]
+        s.reverseString(aux)
+        self.assertEqual(aux, ["b","a"])
 
 if __name__ == '__main__':
     unittest.main()
