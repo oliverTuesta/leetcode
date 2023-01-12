@@ -1,4 +1,5 @@
 .vscode/
+test.py
 *.exe
 main
 a.exe

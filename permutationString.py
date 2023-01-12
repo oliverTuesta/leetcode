@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/permutation-in-string/?envType=study-plan&id=algorithm-i
+# https://leetcode.com/problems/permutation-in-string/
 # Difficulty: Medium
 # Number: 567
 
